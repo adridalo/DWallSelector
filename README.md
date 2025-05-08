@@ -16,7 +16,9 @@ Note: Make sure that the system you're interacting with is on the same network a
 ***
 
 ## Upcoming features for the foreseeable future:
-- Remove IP addresses
+- Remove display walls
+- Connect to more than one display wall at a time
+- Connect to another wall even if you already connected to one
 
 ***
 

@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DWallSelector.MainWindow"
+        Title="DWallSelector"
+		Width="350">
+
+	<StackPanel>
+		<TextBlock FontWeight="Bold" FontSize="30" HorizontalAlignment="Center">DWallSelector</TextBlock>
+		
+		<StackPanel HorizontalAlignment="Center">
+			<Label HorizontalAlignment="Center">Add DWall IP</Label>
+			<TextBox x:Name="NewIPAddressInput" Width="200" />
+			<Button Click="OnAddNewIPAddress" x:Name="NewIPAddressBtn" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="50" FontWeight="Bold">+</Button>
+		</StackPanel>
+		
+		<Separator Margin="10,10,10,10"/>
+
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+			<ListBox Width="200" x:Name="DWallsList">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Label HorizontalAlignment="Center" Content="{Binding}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<Button HorizontalAlignment="Center" Margin="10,10,10,10" Click="OnConnectBtnClick" x:Name="ConnectBtn">Connect</Button>
+		</StackPanel>
+	</StackPanel>
+</Window>

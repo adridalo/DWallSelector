@@ -107,5 +107,14 @@ namespace DWallSelector
                 Console.WriteLine("Invalid IP Address");
             }
         }
+
+        public void OnDWallIPDelete(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button btn && btn.Tag is string dWallToDelete) 
+            {
+                _dWallList.Remove(dWallToDelete);
+                SaveIPAddresses();
+            }
+        }
     }
 }

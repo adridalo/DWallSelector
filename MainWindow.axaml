@@ -22,7 +22,10 @@
 			<ListBox Width="200" x:Name="DWallsList">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<Label HorizontalAlignment="Center" Content="{Binding}"/>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+							<Button FontWeight="Bold" Click="OnDWallIPDelete" Tag="{Binding}">X</Button>
+							<Label HorizontalAlignment="Center" Content="{Binding}"/>
+						</StackPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>

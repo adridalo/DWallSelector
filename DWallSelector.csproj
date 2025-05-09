@@ -6,6 +6,7 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <ApplicationIcon>assets\DWS.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +24,10 @@
 
 	<ItemGroup>
 		<AvaloniaResource Include="assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="assets\DWS.ico" />
 	</ItemGroup>
 
   <ItemGroup>

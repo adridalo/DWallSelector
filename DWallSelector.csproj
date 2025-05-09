@@ -21,6 +21,10 @@
     <PackageReference Include="Json.Net" Version="1.0.33" />
   </ItemGroup>
 
+	<ItemGroup>
+		<AvaloniaResource Include="assets\**" />
+	</ItemGroup>
+
   <ItemGroup>
     <None Update="dwalls.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

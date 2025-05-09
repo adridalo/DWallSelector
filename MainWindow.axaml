@@ -5,9 +5,11 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="DWallSelector.MainWindow"
         Title="DWallSelector"
-		Width="350">
+		Width="350"
+		Height="400">
 
 	<StackPanel>
+		
 		<TextBlock FontWeight="Bold" FontSize="30" HorizontalAlignment="Center">DWallSelector</TextBlock>
 		
 		<StackPanel HorizontalAlignment="Center">
@@ -18,18 +20,21 @@
 		
 		<Separator Margin="10,10,10,10"/>
 
-		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-			<ListBox Width="200" x:Name="DWallsList">
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-							<Button FontWeight="Bold" Click="OnDWallIPDelete" Tag="{Binding}">X</Button>
-							<Label HorizontalAlignment="Center" Content="{Binding}"/>
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
-			</ListBox>
-			<Button HorizontalAlignment="Center" Margin="10,10,10,10" Click="OnConnectBtnClick" x:Name="ConnectBtn">Connect</Button>
+		<StackPanel>
+			<ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
+				<ListBox Width="200" x:Name="DWallsList">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+								<Button FontWeight="Bold" Click="OnDWallIPDelete" Tag="{Binding}">X</Button>
+								<Label HorizontalAlignment="Center" Content="{Binding}"/>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</ScrollViewer>
+			<Button HorizontalAlignment="Center" Margin="10" Click="OnConnectBtnClick" x:Name="ConnectBtn">Connect</Button>
 		</StackPanel>
+
 	</StackPanel>
 </Window>

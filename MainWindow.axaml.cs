@@ -99,6 +99,7 @@ namespace DWallSelector
                 if(!_dWallList.Contains(NewIPAddressInput.Text))
                 {
                     _dWallList.Add(NewIPAddressInput.Text);
+                    NewIPAddressInput.Text = string.Empty;
                     SaveIPAddresses();
                 }
             } 

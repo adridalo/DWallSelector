@@ -15,7 +15,7 @@
 		
 		<StackPanel HorizontalAlignment="Center">
 			<Label HorizontalAlignment="Center">Add DWall IP</Label>
-			<TextBox x:Name="NewIPAddressInput" Width="200" />
+			<TextBox x:Name="NewIPAddressInput" Width="200" HorizontalContentAlignment="Center"/>
 			<Button Click="OnAddNewIPAddress" x:Name="NewIPAddressBtn" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="50" FontWeight="Bold">+</Button>
 		</StackPanel>
 		

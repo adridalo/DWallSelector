@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -13,13 +14,14 @@ namespace DWallSelector
     public partial class MainWindow : Window
     {
         private ObservableCollection<string> _dWallList = new ObservableCollection<string>();
+        private List<string> _connectedDWalls;
         private const string _fileName = "dwalls.json";
-        private int _connectedWalls = 0;
         public MainWindow()
         {
             InitializeComponent();
             LoadIPAddresses();
             DWallsList.ItemsSource = _dWallList;
+            _connectedDWalls = new List<string>();
         }
 
         private void LoadIPAddresses()
@@ -62,16 +64,15 @@ namespace DWallSelector
             {
                 if (dWall is string selectedIP)
                 {
+                    if (_connectedDWalls.Contains(selectedIP)) continue;
                     Console.WriteLine($"Connecting to {selectedIP}...");
-                    ConnectBtn.IsEnabled = false;
-                    DWallsList.IsEnabled = false;
 
                     var process = new Process
                     {
                         StartInfo = new ProcessStartInfo
                         {
                             FileName = "cmd.exe",
-                            Arguments = $"/k telnet {selectedIP}",
+                            Arguments = $"/c telnet {selectedIP}",
                             UseShellExecute = true
                         },
                         EnableRaisingEvents = true
@@ -81,8 +82,8 @@ namespace DWallSelector
                     {
                         Dispatcher.UIThread.Post(() =>
                         {
-                            _connectedWalls--;
-                            if (_connectedWalls == 0)
+                            _connectedDWalls.Remove(selectedIP);
+                            if (_connectedDWalls.Count == 0)
                             {
                                 ConnectBtn.IsEnabled = true;
                                 DWallsList.IsEnabled = true;
@@ -92,7 +93,7 @@ namespace DWallSelector
                     };
 
                     process.Start();
-                    _connectedWalls++;
+                    _connectedDWalls.Add(selectedIP);
                 }
                 else
                 {
